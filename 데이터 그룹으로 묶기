@@ -1,0 +1,7 @@
+SELECT quartet, 
+       ROUND(AVG(x), 2) AS x_mean,       //평균=AVG()
+       ROUND(VAR_SAMP(x), 2) AS x_var,   //표본 분산=VAR_SAMP()
+       ROUND(AVG(y), 2) AS y_mean,       //ROUND(~~, 자릿수) 자릿수까지 나타내므로 그 아래에서 반올림 ex=1이면 2번째 자리에서 반올림
+       ROUND(VAR_SAMP(y), 2) AS y_var
+FROM points
+GROUP BY quartet;

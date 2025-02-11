@@ -1,0 +1,3 @@
+SELECT *
+FROM tips
+WHERE MOD(size, 2)=1  //MOD(컬럼명, 나누는 값)=나머지 값 -> size컬럼을 2로 나누었을 때 나머지가 1인 것들만

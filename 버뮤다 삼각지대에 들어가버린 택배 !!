@@ -1,4 +1,14 @@
-SELECT DATE(order_delivered_carrier_date) AS delivered_carrier_date, COUNT(*) AS orders
-FROM olist_orders_dataset
-WHERE order_delivered_carrier_date LIKE '2017-01-%' AND order_delivered_customer_date IS NULL
-GROUP BY delivered_carrier_date;
+SELECT DATE(order_delivered_carrier_date) AS delivered_carrier_date, COUNT(*) AS orders               (4)
+FROM olist_orders_dataset                                                                             (1)
+WHERE order_delivered_carrier_date LIKE '2017-01-%' AND order_delivered_customer_date IS NULL         (2)
+GROUP BY delivered_carrier_date;                                                                      (3)
+
+(3)순서에서 delivered_carrier_date가 아닌 order_delivered_carrier_date로 묶게되면
+2017-01-02 10:15:30
+2017-01-02 15:45:00
+2017-01-02 19:30:00 
+이런 상황에서 (4)를 실행하므로 DATE(order_delivered_carrier_date)에 의해 
+2017-01-02 
+2017-01-02 
+2017-01-02
+이렇게 중복이 나와버리므로 delivered_carrier_date로 묶어서 중복날짜가 나오지 않도록 함

@@ -1,4 +1,5 @@
-SELECT DATE(order_delivered_carrier_date) AS delivered_carrier_date, COUNT(*) AS orders               (4)
+SELECT DATE(order_delivered_carrier_date) AS delivered_carrier_date,                                  (4)
+       COUNT(*) AS orders               
 FROM olist_orders_dataset                                                                             (1)
 WHERE order_delivered_carrier_date LIKE '2017-01-%' AND order_delivered_customer_date IS NULL         (2)
 GROUP BY delivered_carrier_date;                                                                      (3)

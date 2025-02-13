@@ -1,5 +1,9 @@
-SELECT day, ROUND(sum(tip), 2) AS tip_daily //ROUND(~~, 2) -> 2번째 자리까지 나타내기 즉, 3번째 자리에서 반올림
+SELECT day, ROUND(sum(tip), 2) AS tip_daily 
 FROM tips
 GROUP BY day
 ORDER BY tip_daily DESC
-LIMIT 1;                                    //LIMIT 갯수 -> 위에서부터 해당 갯수만큼만 자료를 보여줌
+LIMIT 1;                                   
+
+(1) LIMIT 보여줄행수
+: 위에서부터 해당 갯수만큼만 자료를 보여줌
+: ex) LIMIT 1이면 1행까지만 보여줌

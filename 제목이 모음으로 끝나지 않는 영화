@@ -1,0 +1,19 @@
+SELECT title
+FROM film
+WHERE rating IN ('R', 'NC-17') AND title NOT IN (SELECT title
+                                                 FROM film
+                                                 WHERE title LIKE '%A' OR 
+                                                       title LIKE '%E' OR
+                                                       title LIKE '%I' OR
+                                                       title LIKE '%O' OR
+                                                       title LIKE '%U');
+
+: 위처럼 서브쿼리를 이용해 NOT IN을 해도되지만 아래풀이처럼 LIKE에 NOT을 붙혀서 간결하게 하는 것이 더 효율적임
+
+SELECT title
+FROM film
+WHERE rating IN ('R', 'NC-17') AND title NOT LIKE '%A' AND 
+                                   title NOT LIKE '%E' AND
+                                   title NOT LIKE '%I' AND
+                                   title NOT LIKE '%O' AND
+                                   title NOT LIKE '%U';

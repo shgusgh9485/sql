@@ -1,4 +1,6 @@
 SELECT game_id, name, year
 FROM games
-WHERE name LIKE '%Christmas%' OR name LIKE '%Santa%';    //%는 하나이상의 전체, _는 하나의 단어를 의미 
-                                                         //OR이나 AND시 name LIKE 서식은 다시 써줌
+WHERE name LIKE '%Christmas%' OR name LIKE '%Santa%';    
+
+: %는 하나이상의 전체, _는 하나의 단어를 의미 
+: OR이나 AND시 name LIKE 서식은 다시 써줌

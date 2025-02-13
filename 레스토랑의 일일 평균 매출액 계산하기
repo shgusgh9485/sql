@@ -1,4 +1,6 @@
 SELECT ROUND(AVG(sales), 2) AS avg_sales       
-FROM (SELECT day, SUM(total_bill) AS sales    //요일 별로 total_bill의 합을 나타낸 후 각 요일의 합들의 평균을 구해야하므로 FROM절에 기입
+FROM (SELECT day, SUM(total_bill) AS sales    
       FROM tips
       GROUP BY day);
+
+: 요일 별로 total_bill의 합을 나타낸 후 각 요일의 합들의 평균을 구해야하므로 서브쿼리를 구성해 FROM절에 기입

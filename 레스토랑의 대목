@@ -1,6 +1,8 @@
 SELECT *
 FROM tips
-WHERE day IN (SELECT day                        //day에 여러개의 값이 들어갈 수 있으므로 IN을 사용, =은 하나의 값만 들어가므로 값이 하나가 아니라면 문제가 발생함
+WHERE day IN (SELECT day                       
              FROM tips
              GROUP BY day
              HAVING SUM(total_bill)>=1500);
+
+ : day에 여러개의 값이 들어갈 수 있으므로 IN을 사용, =은 하나의 값만 들어가므로 값이 하나가 아니라면 문제가 발생함

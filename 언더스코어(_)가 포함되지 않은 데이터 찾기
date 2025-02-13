@@ -1,0 +1,7 @@
+SELECT DISTINCT page_location
+FROM ga
+WHERE page_location NOT LIKE '%\_%' ESCAPE '\';
+
+(1) ESCAPE '특수문자 or 일반문자(알파벳)'
+: ESCAPE에 해당하는 문자 다음 문자를 인식해줌
+: ex.) '%\_%' ESCAPE '\'이면 \다음인 _를 글자로 인식하여 반영해줌
